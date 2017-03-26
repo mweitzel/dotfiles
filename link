@@ -1,0 +1,16 @@
+#!/bin/bash
+
+test -h ~/.dotfiles || ln -s ~/projects/dotfiles/ ~/.dotfiles
+
+ls -d -F .* |
+grep -v '/$' |
+grep -vi .ds_store |
+grep -v '.*.swp' |
+grep -v '.firetower' |
+while read line ; do
+  ln -s ~/.dotfiles/$line ~/$line
+done
+
+mkdir ~/.vim
+mkdir ~/.vim/swaps
+mkdir ~/.vim/backups
