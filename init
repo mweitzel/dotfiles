@@ -1,0 +1,5 @@
+# screenshots
+# https://chrissalzman.com/blog/Screenshots-on-the-Mac.html
+mkdir ~/screenshots
+defaults write com.apple.screencapture location ~/screenshots
+killall SystemUIServer
