@@ -54,3 +54,9 @@ set ttyfast
 
 " give cursor breathing room
 set scrolloff=3
+
+function! FullscreenWindow()
+  :exe "normal \<C-W>_\<C-W>|"
+endfunction
+
+nnoremap <leader>f :call FullscreenWindow()<cr>
