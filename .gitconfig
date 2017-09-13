@@ -4,4 +4,4 @@
 	s = status
 	b = branch
 [core]
-	excludesfile = /Users/matthew/.gitignore_global
+	excludesfile = ~/.gitignore_global
