@@ -51,6 +51,7 @@ endif
 
 " go fast? you should really learn what this does
 set ttyfast
+set lazyredraw
 
 " give cursor breathing room
 set scrolloff=3
