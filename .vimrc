@@ -60,4 +60,16 @@ function! FullscreenWindow()
   :exe "normal \<C-W>_\<C-W>|"
 endfunction
 
+function! PickBuffer()
+  :redir @b
+  :silent buffers
+  :redir END
+  :enew!
+  setlocal buftype=nofile
+  :exe 'normal "bp'
+  :%! cut -d'"' -f2 | grep -vE '$^' | sort
+endfunction
+
 nnoremap <leader>f :call FullscreenWindow()<cr>
+nnoremap <leader>b :buffers<cr>
+nnoremap <leader>g :call PickBuffer()<cr>
