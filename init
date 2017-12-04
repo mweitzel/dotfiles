@@ -3,3 +3,6 @@
 mkdir ~/screenshots
 defaults write com.apple.screencapture location ~/screenshots
 killall SystemUIServer
+
+# disable two finger swipe left/right in browser
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
