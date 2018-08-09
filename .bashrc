@@ -20,3 +20,6 @@ function local_gems() {
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:~/bin"
+
+# https://github.com/junegunn/fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
