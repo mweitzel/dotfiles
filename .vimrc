@@ -1,3 +1,7 @@
+" ruby match do/end
+filetype plugin on
+runtime macros/matchit.vim
+
 " set encoding so 'lcs' works properly
 scriptencoding utf-8
 set encoding=utf-8      " nobomb " learn what nobomb does here
