@@ -1,5 +1,5 @@
 alias g=git
-alias ls='ls -G'
+export CLICOLOR=1
 alias grep='grep --color=auto'
 alias fire=firetower
 alias firer='firetower -r'
