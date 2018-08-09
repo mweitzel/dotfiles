@@ -25,3 +25,8 @@ export PATH="$PATH:~/bin"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 PS1='\W \u-$ '
+
+echo $OSTYPE | grep -i -q darwin && {
+  alias Q='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+  alias q='pmset displaysleepnow'
+}
