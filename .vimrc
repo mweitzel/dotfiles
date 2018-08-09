@@ -6,12 +6,18 @@ runtime macros/matchit.vim
 scriptencoding utf-8
 set encoding=utf-8      " nobomb " learn what nobomb does here
 
+" in the event you switch to indent, everything is open
+set foldlevel=400
+
+"use local ctags
+set tag=./tags
+
 " insert mode backspace works like most editors
 set backspace=indent,eol,start
 " line numbers
 set nu
 " relative line numbers
-set rnu
+"set rnu
 " highlight syntax
 syntax on
 " highlight search
@@ -22,6 +28,12 @@ set ignorecase
 set incsearch
 " Highlight current line
 set cursorline
+" horrible for scroll performance for languages with complex syntax
+autocmd Filetype ruby setlocal nocursorline
+" menubar
+set wildmenu
+" fuzzyfind https://github.com/junegunn/fzf
+set rtp+=~/.fzf
 
 " Make tabs as wide as two spaces
 set tabstop=2
@@ -38,7 +50,7 @@ set list
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
-	set undodir=~/.vim/undo
+  set undodir=~/.vim/undo
 endif
 
 " Don’t create backups when editing files in certain directories
@@ -54,8 +66,8 @@ if has("autocmd")
 endif
 
 " go fast? you should really learn what this does
-set ttyfast
-set lazyredraw
+"set ttyfast
+"set lazyredraw
 
 " give cursor breathing room
 set scrolloff=3
@@ -74,6 +86,28 @@ function! PickBuffer()
   :%! cut -d'"' -f2 | grep -vE '$^' | sort
 endfunction
 
+function! Scratch()
+  :enew!
+  setlocal buftype=nofile
+endfunction
+
 nnoremap <leader>f :call FullscreenWindow()<cr>
 nnoremap <leader>b :buffers<cr>
 nnoremap <leader>g :call PickBuffer()<cr>
+nnoremap <leader>s :call Scratch()<cr>
+
+function! Dgitgutter()
+  :GitGutterToggle
+  :echo 'g:gitgutter_enabled' g:gitgutter_enabled
+endfunction
+nnoremap <leader>d :call Dgitgutter()<cr>
+let g:gitgutter_enabled = 0
+
+" update very fast
+set updatetime=25
+
+" clear search
+nmap // :noh<Enter>
+
+" use tabs in go
+autocmd Filetype go setlocal ts=2 sw=2 noexpandtab
