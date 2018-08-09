@@ -17,3 +17,6 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete 
 function local_gems() {
   export GEM_PATH=.gems
 } ; local_gems
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:~/bin"
