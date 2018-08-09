@@ -23,3 +23,5 @@ export PATH="$PATH:~/bin"
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PS1='\W \u-$ '
