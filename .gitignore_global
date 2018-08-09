@@ -5,3 +5,9 @@
 *.pyc
 
 .vsession
+
+.symrubies
+
+__notes
+
+.irbrc
