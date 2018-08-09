@@ -3,5 +3,7 @@
 	co = checkout
 	s = status
 	b = branch
+	bdate = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	ls = log --pretty=short --stat -n 5
 [core]
 	excludesfile = ~/.gitignore_global
