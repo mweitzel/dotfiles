@@ -2,7 +2,6 @@ alias g=git
 export CLICOLOR=1
 alias grep='grep --color=auto'
 alias fire=firetower
-alias firer='firetower -r'
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 
