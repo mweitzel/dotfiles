@@ -3,7 +3,25 @@
 	co = checkout
 	s = status
 	b = branch
+  bb ="!f() { \
+    git branch | grep '*'; \
+  }; f"
+  m = co main
+  mm = co main
 	bdate = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	ls = log --pretty=short --stat -n 5
+  take="!f() { \
+    git config --global alias.take|sed 's/&&/\\n/g'; \
+    local b=`git symbolic-ref --short HEAD` && \
+    git fetch origin $b && \
+    git branch -f $b.bak && \
+    git reset --hard origin/$b; \
+  }; f"
+	commit-empty = commit --allow-empty
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
+[pull]
+  ff = only
+[init]
+  defaultBranch = main
